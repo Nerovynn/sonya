@@ -1,25 +1,25 @@
 
 (async function checkForUpdates() {
   const currentVersion = "1.0";
-  const versionUrl = "https://raw.githubusercontent.com/ivysone/Will-you-be-my-Valentine-/main/version.json"; 
+  const versionUrl = "https://raw.githubusercontent.com/ivysone/Will-you-be-my-Valentine-/main/version.json";
 
   try {
-      const response = await fetch(versionUrl);
-      if (!response.ok) {
-          console.warn("Could not fetch version information.");
-          return;
-      }
-      const data = await response.json();
-      const latestVersion = data.version;
-      const updateMessage = data.updateMessage;
+    const response = await fetch(versionUrl);
+    if (!response.ok) {
+      console.warn("Could not fetch version information.");
+      return;
+    }
+    const data = await response.json();
+    const latestVersion = data.version;
+    const updateMessage = data.updateMessage;
 
-      if (currentVersion !== latestVersion) {
-          alert(updateMessage);
-      } else {
-          console.log("You are using the latest version.");
-      }
+    if (currentVersion !== latestVersion) {
+      alert(updateMessage);
+    } else {
+      console.log("You are using the latest version.");
+    }
   } catch (error) {
-      console.error("Error checking for updates:", error);
+    console.error("Error checking for updates:", error);
   }
 })();
 
@@ -33,10 +33,13 @@ const messages = [
   "Seriusan bakalan sedih sih..",
   "Demi apapun pasti sedih banget..",
   "Yaudah deh aku ga maksa..",
-  "Becanda wleee, HARUS BILANG YES❤️" 
+  "Becanda wleee, HARUS BILANG YES❤️"
 ];
 
 let messageIndex = 0;
+
+const yesButton = document.getElementById("yesButton")
+const noButton = document.getElementById("noButton")
 
 function handleNoClick() {
   const noButton = document.querySelector('.no-button');
@@ -50,3 +53,6 @@ function handleNoClick() {
 function handleYesClick() {
   window.location.href = "yes_page.html";
 }
+
+yesButton.addEventListener("click", handleYesClick)
+noButton.addEventListener("click", handleNoClick)
