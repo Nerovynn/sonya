@@ -1,28 +1,3 @@
-
-(async function checkForUpdates() {
-  const currentVersion = "1.0";
-  const versionUrl = "https://raw.githubusercontent.com/ivysone/Will-you-be-my-Valentine-/main/version.json";
-
-  try {
-    const response = await fetch(versionUrl);
-    if (!response.ok) {
-      console.warn("Could not fetch version information.");
-      return;
-    }
-    const data = await response.json();
-    const latestVersion = data.version;
-    const updateMessage = data.updateMessage;
-
-    if (currentVersion !== latestVersion) {
-      alert(updateMessage);
-    } else {
-      console.log("You are using the latest version.");
-    }
-  } catch (error) {
-    console.error("Error checking for updates:", error);
-  }
-})();
-
 const messages = [
   "Kamu yakin gamau?",
   "Serius nihh?",
@@ -50,8 +25,11 @@ function handleNoClick() {
   yesButton.style.fontSize = `${currentSize * 1.5}px`;
 }
 
+const container = document.getElementById("container")
+const jintuk = document.getElementById("yesMenu")
 function handleYesClick() {
-  window.location.href = "yes_page.html";
+  container.style.display = "none"
+  jintuk.style.display = "block"
 }
 
 yesButton.addEventListener("click", handleYesClick)

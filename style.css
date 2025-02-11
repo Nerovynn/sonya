@@ -50,3 +50,19 @@ h1 {
   border-radius: 10px;
   margin-top: 20px;
 }
+
+.sontoloyo {
+  text-align: center;
+  display: none;
+}
+
+.sontoloyo .header_text {
+  font-size: 3em;
+  color: #d32f2f;
+}
+
+.sontoloyo .gif_container img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
